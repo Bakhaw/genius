@@ -1,4 +1,6 @@
 export default {
+  SEARCH: (query, accessToken) =>
+    `https://api.genius.com/search?q=${query}&access_token=${accessToken}`,
   CLIENT_ID: 'Z3eZm0g3ayYdYT68KeSbk4dJ95RnCJieT2aEj4OVAZg15Tz1ZtliYHJZGDEztrgA',
   CIENT_SECRET:
     'xs5eI1aQrHSL3zCsLhNBYBqn7aiQ-78G1p74mt6Z78za3YKJyGXr67SYbNghAaB047ktzuZKiurnICTt9cME_Q',
