@@ -1,18 +1,19 @@
 import React from 'react';
+import Link from 'react-router-dom/Link';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import Brand from '../../images/brand.png';
 
-function NavBar() {
+export default function NavBar() {
   return (
-    <AppBar position='static' color='default' className='NavBar'>
-      <Toolbar>
-        <Typography variant='h6' color='inherit'>
-          Genius
-        </Typography>
-      </Toolbar>
-    </AppBar>
+    <nav>
+      <AppBar position='static' color='default' className='NavBar'>
+        <Toolbar>
+          <Link className='NavBar__brand' to='/'>
+            <img alt='Genius logo' src={Brand} />
+          </Link>
+        </Toolbar>
+      </AppBar>
+    </nav>
   );
 }
-
-export default NavBar;
