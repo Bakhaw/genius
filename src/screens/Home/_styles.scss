@@ -1,2 +1,20 @@
 .Home {
+  .Home__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: $Content__width__default;
+    @include xs {
+      width: $Content__width__xs;
+    }
+  }
+  .Home__results {
+    width: $Content__width__default;
+    margin: auto;
+    @include xs {
+      width: $Content__width__xs;
+    }
+  }
 }
