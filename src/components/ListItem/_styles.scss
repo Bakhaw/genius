@@ -1,0 +1,48 @@
+.ListItem {
+  height: $ListItem__height;
+  background: $White !important;
+  margin: 15px 0 !important;
+  padding: 0 !important;
+  box-shadow: 0 5px 5px 0 rgba(42, 51, 83, 0.12), 0 5px 5px rgba(0, 0, 0, 0.06) !important;
+  border-radius: 4px !important;
+  &:hover {
+    background: rgba($Pink, 0.15) !important;
+    border-right: 7px solid $Pink;
+  }
+  .ListItem__poster {
+    height: $ListItem__poster__height;
+    width: $ListItem__poster__width;
+    border-radius: 4px 0 0 4px;
+  }
+  .ListItem__detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+    p {
+      margin: 0;
+      padding: 0 10px;
+    }
+    .ListItem__detail__title {
+      padding-top: 5px;
+      width: 400px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 18px;
+      font-weight: bold;
+      @include xs {
+        width: calc(90vw - #{$ListItem__poster__width});
+      }
+    }
+    .ListItem__detail__artist {
+      font-size: 14px;
+    }
+    .ListItem__detail__pageviews {
+      padding-bottom: 5px;
+      color: $GreyDark;
+      font-size: 12px;
+    }
+  }
+}
