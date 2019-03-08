@@ -1,0 +1,38 @@
+.Input {
+  width: $Input__width;
+  .Input__label {
+    font-size: 22px;
+  }
+  div {
+    margin: 10px 0;
+  }
+  .Input__paper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    .Input__base {
+      flex: 1;
+      margin-left: 15px;
+    }
+    .Input__search-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+      width: 60px;
+      background: $Pink;
+      border-radius: 0 4px 4px 0;
+      box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+        0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+        0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+      &:hover {
+        opacity: 0.8;
+        background: $Pink;
+      }
+      svg {
+        fill: $White;
+      }
+    }
+  }
+}
