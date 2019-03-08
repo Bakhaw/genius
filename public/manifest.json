@@ -1,6 +1,6 @@
 {
-  "short_name": "Genius App",
-  "name": "Genius Progessive Web Application",
+  "short_name": "Genius",
+  "name": "Genius",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#fdf97d",
+  "background_color": "#fdf97d"
 }
