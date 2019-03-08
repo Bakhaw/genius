@@ -1,36 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Router from './Router';
+import UpdateApp from './components/UpdateApp';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasUpdate: undefined };
-  }
-
-  componentWillMount() {
-    if (window.swObservable) {
-      window.swObservable.subscribe(hasUpdate => this.setState({ hasUpdate }));
-    }
-  }
-  render() {
-    const { hasUpdate } = this.state;
-    return (
-      <div>
-        <Router />
-        {hasUpdate !== undefined &&
-          (hasUpdate ? (
-            <p className='sw-notification'>
-              Une mise à jour est disponible. Veuillez rafraîchir l'application.
-            </p>
-          ) : (
-            <p className='sw-notification'>
-              L'application est maintenant en cache et prête à être utilisée
-              hors ligne.
-            </p>
-          ))}
-      </div>
-    );
-  }
+export default function App() {
+  return (
+    <React.Fragment>
+      <Router />
+      <UpdateApp />
+    </React.Fragment>
+  );
 }
-
-export default App;
