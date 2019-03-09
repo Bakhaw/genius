@@ -1,20 +1,23 @@
 import React from 'react';
-import axios from 'axios';
 import api from '../../api';
 
 import Header from './Header';
 import Results from './Results';
+import TopArtist from './TopArtist';
 
 function Home() {
   const [isLoading, setLoading] = React.useState(false);
+  const [topArtist, setTopArtist] = React.useState({});
   const [hits, setHits] = React.useState([]);
 
   const handleSubmit = async search => {
     await setLoading(true);
-    const { SEARCH, CLIENT_ACCESS_TOKEN } = api;
-    const request = await axios.get(SEARCH(search, CLIENT_ACCESS_TOKEN));
-    const { hits } = await request.data.response;
-    await setHits(hits);
+    const { CLIENT_ACCESS_TOKEN } = api.config;
+    const { SEARCH } = api.methods;
+    await SEARCH(search, CLIENT_ACCESS_TOKEN).then(({ hits, topArtist }) => {
+      setHits(hits);
+      setTopArtist(topArtist);
+    });
     await setLoading(false);
   };
 
@@ -25,6 +28,7 @@ function Home() {
       </header>
       {!isLoading && hits.length > 0 && (
         <section className='Home__results'>
+          <TopArtist topArtist={topArtist} />
           <Results results={hits} />
         </section>
       )}

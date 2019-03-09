@@ -10,6 +10,25 @@
       width: $Content__width__xs;
     }
   }
+  .Home__TopArtist {
+    .Home__TopArtist__item {
+      margin: 10px 0 30px 0;
+      background: $White;
+      border-radius: 4px;
+      box-shadow: 0 5px 5px 0 rgba(42, 51, 83, 0.12),
+        0 5px 5px rgba(0, 0, 0, 0.06);
+      &:hover {
+        background: rgba($Pink, 0.15);
+        border-right: 7px solid $Pink;
+      }
+      .Home__TopArtist__item__avatar {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+    }
+  }
   .Home__results {
     width: $Content__width__default;
     margin: auto;

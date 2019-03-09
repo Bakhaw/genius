@@ -11,7 +11,9 @@
   }
   .ListItem__poster {
     height: $ListItem__poster__height;
-    width: $ListItem__poster__width;
+    min-width: $ListItem__poster__width;
+    width: auto;
+    max-width: $ListItem__poster__width;
     border-radius: 4px 0 0 4px;
   }
   .ListItem__detail {
@@ -40,9 +42,19 @@
       font-size: 14px;
     }
     .ListItem__detail__pageviews {
-      padding-bottom: 5px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 5px;
       color: $GreyDark;
       font-size: 12px;
+      div {
+        margin-right: 5px;
+        svg {
+          height: 18px;
+          width: 18px;
+        }
+      }
     }
   }
 }

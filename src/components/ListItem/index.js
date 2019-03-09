@@ -1,5 +1,7 @@
 import React from 'react';
 import MaterialListItem from '@material-ui/core/ListItem';
+import Eye from '@material-ui/icons/VisibilityOutlined';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 
 export default function ListItem({
   primary_artist,
@@ -26,7 +28,12 @@ export default function ListItem({
             <p className='ListItem__detail__title'>{title}</p>
             <p className='ListItem__detail__artist'>{primary_artist.name}</p>
           </div>
-          <p className='ListItem__detail__pageviews'>{numberOfViews}</p>
+          <div className='ListItem__detail__pageviews'>
+            <ListItemIcon>
+              <Eye fontSize='small' />
+            </ListItemIcon>
+            <span>{numberOfViews}</span>
+          </div>
         </div>
       </MaterialListItem>
     </a>

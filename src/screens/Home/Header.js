@@ -10,6 +10,7 @@ export default function Form({ isLoading, onSubmit }) {
   return (
     <React.Fragment>
       <Input
+        clearInput={() => setSearch('')}
         isLoading={isLoading}
         label='Search artists & more...'
         onChange={handleInputChange}

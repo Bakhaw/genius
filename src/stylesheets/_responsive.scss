@@ -1,7 +1,14 @@
 $screen-xs-max: 500px;
+$screen-sm-min: 767px;
 
 @mixin xs {
   @media (max-width: #{$screen-xs-max}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (min-width: calc(#{$screen-xs-max} + 1px)) and (max-width: #{$screen-sm-min}) {
     @content;
   }
 }

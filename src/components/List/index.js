@@ -5,7 +5,6 @@ import ListItem from '../ListItem';
 function List({ items }) {
   return (
     <div className='List'>
-      <h1>Songs</h1>
       <MaterialList component='nav'>
         {items.map(({ result }) => (
           <ListItem key={result.id} {...result} />

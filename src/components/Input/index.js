@@ -1,12 +1,12 @@
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
-import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
+import Paper from '@material-ui/core/Paper';
 
-import Loader from '../Loader';
+import ClearInput from './ClearInput';
+import InputButton from './InputButton';
 
 function CustomizedInputBase({
+  clearInput,
   isLoading,
   label,
   onChange,
@@ -21,22 +21,19 @@ function CustomizedInputBase({
         <InputBase
           className='Input__base'
           onChange={onChange}
-          onKeyPress={ev => {
-            if (ev.key === 'Enter') {
-              ev.preventDefault();
+          onKeyPress={e => {
+            if (e.key === 'Enter') {
+              e.target.blur();
+              e.preventDefault();
               onSubmit();
             }
           }}
           placeholder={placeholder}
           value={value}
         />
-        <IconButton
-          aria-label='Search'
-          className='Input__search-icon'
-          onClick={onSubmit}
-        >
-          {isLoading ? <Loader /> : <SearchIcon />}
-        </IconButton>
+
+        {value !== '' && <ClearInput clearInput={clearInput} />}
+        <InputButton isLoading={isLoading} onSubmit={onSubmit} />
       </Paper>
     </div>
   );
