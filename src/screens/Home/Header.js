@@ -8,16 +8,14 @@ export default function Form({ isLoading, onSubmit }) {
   };
 
   return (
-    <React.Fragment>
-      <Input
-        clearInput={() => setSearch('')}
-        isLoading={isLoading}
-        label='Search artists & more...'
-        onChange={handleInputChange}
-        onSubmit={() => onSubmit(search)}
-        placeholder='Drake'
-        value={search}
-      />
-    </React.Fragment>
+    <Input
+      clearInput={() => setSearch('')}
+      isLoading={isLoading}
+      label='Search artists & more...'
+      onChange={handleInputChange}
+      onSubmit={() => onSubmit(search)}
+      placeholder='Drake'
+      value={search}
+    />
   );
 }

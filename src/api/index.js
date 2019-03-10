@@ -1,4 +1,5 @@
 import axios from 'axios';
+import _ from 'underscore';
 
 export default {
   config: {
@@ -16,10 +17,16 @@ export default {
       const request = await axios.get(url);
       const { hits } = await request.data.response;
 
-      const artists = hits.map(item => item.result.primary_artist);
-      const topArtist = artists[0];
+      const artists = [];
+      hits.forEach(hit => {
+        const artistObj = hit.result.primary_artist;
 
-      return { hits, topArtist };
+        if (_.findWhere(artists, artistObj) == null) {
+          artists.push(artistObj);
+        }
+      });
+
+      return { hits, artists };
     },
     GET_ARTIST: async (artistId, accessToken) => {
       const url = `https://api.genius.com/artists/${artistId}?access_token=${accessToken}`;
