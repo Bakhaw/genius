@@ -10,10 +10,20 @@ export default function ListItem({
   title,
   url
 }) {
-  const numberOfViews =
-    stats.pageviews !== undefined
-      ? Number(stats.pageviews).toLocaleString()
-      : '';
+  const formatViews = views => {
+    // ty https://stackoverflow.com/a/40724354
+    const SI_SYMBOL = ['', 'k', 'M', 'G', 'T', 'P', 'E'];
+
+    const tier = (Math.log10(views) / 3) | 0;
+
+    if (tier === 0) return views;
+
+    const suffix = SI_SYMBOL[tier];
+    const scale = Math.pow(10, tier * 3);
+    const scaled = views / scale;
+
+    return scaled.toFixed(1) + suffix;
+  };
 
   return (
     <a href={url} rel='noopener noreferrer' target='_blank'>
@@ -28,12 +38,14 @@ export default function ListItem({
             <p className='ListItem__detail__title'>{title}</p>
             <p className='ListItem__detail__artist'>{primary_artist.name}</p>
           </div>
-          <div className='ListItem__detail__pageviews'>
-            <ListItemIcon>
-              <Eye fontSize='small' />
-            </ListItemIcon>
-            <span>{numberOfViews}</span>
-          </div>
+          {stats.pageviews && (
+            <div className='ListItem__detail__pageviews'>
+              <ListItemIcon>
+                <Eye fontSize='small' />
+              </ListItemIcon>
+              <span>{formatViews(stats.pageviews)}</span>
+            </div>
+          )}
         </div>
       </MaterialListItem>
     </a>

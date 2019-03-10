@@ -1,18 +1,34 @@
 import React from 'react';
 import api from '../../api';
-import Banner from './Banner';
+
 import Avatar from './Avatar';
+import Banner from './Banner';
+import Loader from '../../components/Loader';
 
 function Artist(props) {
+  const [isLoading, setLoading] = React.useState(true);
   const [artist, setArtist] = React.useState({});
 
-  React.useEffect(() => {
+  const getArtist = async () => {
+    await setLoading(true);
     const { CLIENT_ACCESS_TOKEN } = api.config;
     const { GET_ARTIST } = api.methods;
-    GET_ARTIST(props.match.params.artistId, CLIENT_ACCESS_TOKEN).then(artist =>
-      setArtist(artist)
+    await GET_ARTIST(props.match.params.artistId, CLIENT_ACCESS_TOKEN).then(
+      artist => setArtist(artist)
     );
+    await setLoading(false);
+  };
+
+  React.useEffect(() => {
+    // getArtist();
   }, []);
+
+  if (isLoading)
+    return (
+      <div className='Artist__loading'>
+        <Loader />
+      </div>
+    );
 
   return (
     <div className='Artist'>
