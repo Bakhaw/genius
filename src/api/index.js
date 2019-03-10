@@ -26,13 +26,19 @@ export default {
         }
       });
 
-      return { hits, artists };
+      return { artists, hits };
     },
     GET_ARTIST: async (artistId, accessToken) => {
       const url = `https://api.genius.com/artists/${artistId}?access_token=${accessToken}`;
       const request = await axios.get(url);
       const { artist } = await request.data.response;
       return artist;
+    },
+    GET_ARTIST_SONGS: async (artistId, page, accessToken) => {
+      const url = `https://api.genius.com/artists/${artistId}/songs?sort=popularity&page=${page}&access_token=${accessToken}`;
+      const request = await axios.get(url);
+      const { songs } = await request.data.response;
+      return songs;
     }
   }
 };

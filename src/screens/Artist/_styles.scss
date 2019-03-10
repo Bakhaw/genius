@@ -1,6 +1,11 @@
 .Artist__loading {
-  border: 2px solid red;
   height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  div {
+    color: $Pink;
+  }
 }
 
 .Artist {
@@ -21,7 +26,7 @@
       height: 40vw;
     }
   }
-  .Artist__Avatar {
+  .Artist__Header {
     display: flex;
     align-items: center;
     width: 80%;
@@ -35,7 +40,7 @@
     @include sm {
       transform: translateY(60px);
     }
-    img {
+    .Artist__Header__avatar {
       border-radius: 50%;
       border: 2px solid $GreyLight;
       height: 280px;
@@ -49,19 +54,29 @@
         width: 40vw;
       }
     }
-    h3 {
-      color: $White;
-      font-size: 48px;
-      margin: 0 0 0 25px;
-      @include xs {
-        margin: 0 0 0 10px;
-        font-size: 28px;
-        color: $Black;
-      }
-      @include sm {
-        margin: 0 0 0 10px;
-        font-size: 38px;
+    .Artist__Header__name {
+      display: flex;
+      align-items: baseline;
+      h3 {
+        color: $White;
+        font-size: 48px;
+        margin: 0 10px 0 25px;
+        @include xs {
+          margin: 0 0 0 10px;
+          font-size: 28px;
+          color: $Black;
+        }
+        @include sm {
+          margin: 0 0 0 10px;
+          font-size: 38px;
+        }
       }
     }
+  }
+  .Artist__songs {
+    position: absolute;
+    border: 2px solid red;
+    height: 100vh;
+    width: 500px;
   }
 }

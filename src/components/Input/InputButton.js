@@ -10,7 +10,7 @@ export default function InputButton({ isLoading, onSubmit }) {
       className='Input__search-icon'
       onClick={onSubmit}
     >
-      {isLoading ? <Loader /> : <SearchIcon />}
+      {isLoading ? <Loader size={20} /> : <SearchIcon />}
     </IconButton>
   );
 }

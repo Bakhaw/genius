@@ -14,7 +14,6 @@ export default function Songs({ items }) {
       <MaterialList component='nav'>
         {items.map(({ result }) => {
           const { id, url } = result;
-
           return (
             <a
               key={`song-${id}`}

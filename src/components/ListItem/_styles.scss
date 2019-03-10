@@ -7,7 +7,8 @@
   border-radius: 4px !important;
   &:hover {
     background: rgba($Pink, 0.15) !important;
-    border-right: 7px solid $Pink;
+    border-right: 12px solid $Pink;
+    transition: 0.3s;
   }
   .ListItem__poster {
     height: $ListItem__poster__height;
@@ -23,7 +24,6 @@
     margin: 0 10px;
   }
   .ListItem__title {
-    padding-top: 5px;
     width: 400px;
     overflow: hidden;
     white-space: nowrap;
