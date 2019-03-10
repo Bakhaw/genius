@@ -20,6 +20,7 @@ function CustomizedInputBase({
       <Paper className='Input__paper' elevation={3}>
         <InputBase
           className='Input__base'
+          id='InputComponent'
           onChange={onChange}
           onKeyPress={e => {
             if (e.key === 'Enter') {

@@ -5,35 +5,39 @@ import Header from './Header';
 
 import List from '../../components/List';
 
-function Home() {
+import { withContext } from '../../context';
+
+function Home({ contextActions, contextState }) {
   const [isLoading, setLoading] = React.useState(false);
-  const [artists, setArtists] = React.useState({});
-  const [hits, setHits] = React.useState([]);
 
   const handleSubmit = async search => {
     await setLoading(true);
+    const { setStateByKey } = contextActions;
     const { CLIENT_ACCESS_TOKEN } = api.config;
     const { SEARCH } = api.methods;
     await SEARCH(search, CLIENT_ACCESS_TOKEN).then(({ hits, artists }) => {
-      setHits(hits);
-      setArtists(artists);
+      setStateByKey('songs', hits);
+      setStateByKey('artists', artists);
     });
     await setLoading(false);
   };
+
+  const { artists, songs } = contextState;
+  const displayResults = !isLoading && songs.length > 0 && artists.length > 0;
 
   return (
     <div className='Home'>
       <header className='Home__header'>
         <Header isLoading={isLoading} onSubmit={handleSubmit} />
       </header>
-      {!isLoading && hits.length > 0 && artists.length > 0 && (
+      {displayResults && (
         <section className='Home__results'>
           <List items={artists} type='artists' />
-          <List items={hits} type='songs' />;
+          <List items={songs} type='songs' />
         </section>
       )}
     </div>
   );
 }
 
-export default Home;
+export default withContext(Home);

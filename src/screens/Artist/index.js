@@ -6,7 +6,7 @@ import Banner from './Banner';
 import Loader from '../../components/Loader';
 
 function Artist(props) {
-  const [isLoading, setLoading] = React.useState(true);
+  const [isLoading, setLoading] = React.useState(false);
   const [artist, setArtist] = React.useState({});
 
   const getArtist = async () => {
@@ -20,7 +20,7 @@ function Artist(props) {
   };
 
   React.useEffect(() => {
-    // getArtist();
+    getArtist();
   }, []);
 
   if (isLoading)
