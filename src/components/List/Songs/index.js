@@ -12,22 +12,19 @@ export default function Songs({ items }) {
     <div className='List'>
       <Title title='songs' />
       <MaterialList component='nav'>
-        {items.map(({ result }) => {
-          const { id, url } = result;
-          return (
-            <a
-              key={`song-${id}`}
-              href={url}
-              rel='noopener noreferrer'
-              target='_blank'
-            >
-              <ListItem>
-                <Poster {...result} />
-                <Detail {...result} />
-              </ListItem>
-            </a>
-          );
-        })}
+        {items.map(item => (
+          <a
+            key={`song-${item.id}`}
+            href={item.url}
+            rel='noopener noreferrer'
+            target='_blank'
+          >
+            <ListItem>
+              <Poster {...item} />
+              <Detail {...item} />
+            </ListItem>
+          </a>
+        ))}
       </MaterialList>
     </div>
   );

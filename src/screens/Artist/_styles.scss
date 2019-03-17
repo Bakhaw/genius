@@ -9,6 +9,8 @@
 }
 
 .Artist {
+  display: flex;
+  flex-direction: column;
   .Artist__Banner {
     background-color: $Black;
     background-size: cover;
@@ -41,6 +43,7 @@
       transform: translateY(60px);
     }
     .Artist__Header__avatar {
+      overflow: hidden;
       border-radius: 50%;
       border: 2px solid $GreyLight;
       height: 280px;
@@ -54,9 +57,12 @@
         width: 40vw;
       }
     }
+    .Artist__Header__avatar__verified {
+      border: 4px solid $Pink;
+    }
     .Artist__Header__name {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       h3 {
         color: $White;
         font-size: 48px;
@@ -74,9 +80,18 @@
     }
   }
   .Artist__songs {
-    position: absolute;
-    border: 2px solid red;
-    height: 100vh;
-    width: 500px;
+    min-height: 100vh;
+    width: $Content__width__default;
+    margin: 80px auto 0 auto;
+    @include xs {
+      width: $Content__width__xs;
+    }
+  }
+  .Artist__fetch-more__button {
+    align-self: center;
+    margin-bottom: 20px;
+    div {
+      color: $Pink;
+    }
   }
 }

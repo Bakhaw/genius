@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import Verified from '../../components/Verified';
 
 export default function Header({ artist }) {
@@ -6,7 +7,10 @@ export default function Header({ artist }) {
     <div className='Artist__Header'>
       <img
         alt='Artist avatar'
-        className='Artist__Header__avatar'
+        className={classNames(
+          'Artist__Header__avatar',
+          artist.is_verified && 'Artist__Header__avatar__verified'
+        )}
         src={artist.image_url}
       />
       <div className='Artist__Header__name'>

@@ -1,7 +1,12 @@
 .Button {
-  height: $Button__height;
-  width: $Button__width;
+  height: $Button__height__default;
+  width: $Button__width__default;
+  margin: auto !important;
   background: rgba($Pink, 0.6) !important;
   color: $White !important;
   font-size: 16px !important;
+  text-transform: unset !important;
+  @include xs {
+    width: $Button__width__xs;
+  }
 }

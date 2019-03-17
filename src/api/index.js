@@ -15,11 +15,10 @@ export default {
     SEARCH: async (query, accessToken) => {
       const url = `https://api.genius.com/search?q=${query}&access_token=${accessToken}`;
       const request = await axios.get(url);
-      const { hits } = await request.data.response;
-
+      const hits = await request.data.response.hits.map(hit => hit.result);
       const artists = [];
       hits.forEach(hit => {
-        const artistObj = hit.result.primary_artist;
+        const artistObj = hit.primary_artist;
 
         if (_.findWhere(artists, artistObj) == null) {
           artists.push(artistObj);
