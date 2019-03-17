@@ -1,5 +1,5 @@
-$screen-xs-max: 500px;
-$screen-sm-min: 767px;
+$screen-xs-max: 600px;
+$screen-sm-min: 900px;
 
 @mixin xs {
   @media (max-width: #{$screen-xs-max}) {

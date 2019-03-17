@@ -40,50 +40,76 @@
       transform: translateY(30px);
     }
     @include sm {
-      transform: translateY(60px);
+      transform: translateY(100px);
     }
     .Artist__Header__avatar {
       overflow: hidden;
       border-radius: 50%;
       border: 2px solid $GreyLight;
-      height: 280px;
-      width: 280px;
+      height: 250px;
+      width: 250px;
       @include xs {
         height: 50vw;
         width: 50vw;
       }
       @include sm {
-        height: 40vw;
-        width: 40vw;
+        height: 30vw;
+        width: 30vw;
       }
     }
     .Artist__Header__avatar__verified {
       border: 4px solid $Pink;
     }
-    .Artist__Header__name {
-      display: flex;
-      align-items: center;
-      h3 {
-        color: $White;
-        font-size: 48px;
-        margin: 0 10px 0 25px;
-        @include xs {
-          margin: 0 0 0 10px;
-          font-size: 28px;
-          color: $Black;
+    .Artist__Header__desc {
+      margin: 0 10px 0 25px;
+      @include xs {
+        margin: 0;
+      }
+      .Artist__Header__desc__name {
+        display: flex;
+        align-items: center;
+        h3 {
+          margin: 0;
+          color: $White;
+          font-size: 50px;
+          max-width: 50vw;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          @include xs {
+            max-width: 250px;
+            margin: 10px 0 10px 10px;
+            font-size: 28px;
+            color: $Black;
+          }
+          @include sm {
+            max-width: 35vw;
+            margin: 10px 0 10px 10px;
+            font-size: 38px;
+          }
         }
-        @include sm {
-          margin: 0 0 0 10px;
-          font-size: 38px;
+      }
+      .Artist__Header__desc__socials {
+        margin-top: 20px;
+        img {
+          height: 20px;
+          width: 20px;
+          margin: 0 10px;
         }
+      }
+    }
+    .Artist__Header__divider {
+      display: none;
+      @include xs {
+        display: unset;
       }
     }
   }
   .Artist__songs {
-    min-height: 100vh;
     width: $Content__width__default;
-    margin: 80px auto 0 auto;
+    margin: 120px auto 0 auto;
     @include xs {
+      margin: 50px auto 0 auto;
       width: $Content__width__xs;
     }
   }

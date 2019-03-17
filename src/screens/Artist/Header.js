@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import Divider from '@material-ui/core/Divider';
 import Verified from '../../components/Verified';
 
 export default function Header({ artist }) {
@@ -13,10 +14,13 @@ export default function Header({ artist }) {
         )}
         src={artist.image_url}
       />
-      <div className='Artist__Header__name'>
-        <h3>{artist.name}</h3>
-        {artist.is_verified && <Verified />}
+      <div className='Artist__Header__desc'>
+        <div className='Artist__Header__desc__name'>
+          <h3>{artist.name}</h3>
+          {artist.is_verified && <Verified />}
+        </div>
       </div>
+      <Divider absolute className='Artist__Header__divider' />
     </div>
   );
 }

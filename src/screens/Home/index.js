@@ -22,6 +22,10 @@ function Home({ contextActions, contextState }) {
     await setLoading(false);
   };
 
+  React.useEffect(() => {
+    document.title = 'Genius';
+  }, []);
+
   const { artists, songs } = contextState;
   const displayResults = !isLoading && songs.length > 0 && artists.length > 0;
 

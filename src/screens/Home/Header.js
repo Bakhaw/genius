@@ -9,7 +9,7 @@ function Form({ contextActions, contextState, isLoading, onSubmit }) {
 
   const handleInputChange = e => setStateByKey('search', e.target.value);
   const handleSubmit = () => onSubmit(search);
-  const handleClearInput = e => {
+  const handleClearInput = () => {
     setStateByKey('search', '');
     document.getElementById('InputComponent').focus();
   };
@@ -18,7 +18,7 @@ function Form({ contextActions, contextState, isLoading, onSubmit }) {
     <Input
       clearInput={handleClearInput}
       isLoading={isLoading}
-      label='Search artists & more...'
+      label='Search artists & more'
       onChange={handleInputChange}
       onSubmit={handleSubmit}
       placeholder='Try «Drake» for example'

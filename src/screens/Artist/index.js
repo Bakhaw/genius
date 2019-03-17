@@ -19,9 +19,10 @@ function Artist(props) {
   const [songs, setSongs] = React.useState([]);
 
   const getArtist = async () => {
-    await GET_ARTIST(artistId, CLIENT_ACCESS_TOKEN).then(artist =>
-      setArtist(artist)
-    );
+    await GET_ARTIST(artistId, CLIENT_ACCESS_TOKEN).then(artist => {
+      setArtist(artist);
+      document.title = `Genius | ${artist.name}`;
+    });
   };
 
   const getArtistSongs = async pageNumber => {
