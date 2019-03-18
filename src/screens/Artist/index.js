@@ -60,7 +60,7 @@ function Artist(props) {
     );
 
   return (
-    <div className='Artist'>
+    <main className='Artist'>
       <Banner artist={artist} />
       <Header artist={artist} />
       <div className='Artist__songs'>
@@ -69,7 +69,7 @@ function Artist(props) {
       <Button className='Artist__fetch-more__button' onClick={fetchMoreData}>
         {isLoading ? <Loader size={30} /> : 'More'}
       </Button>
-    </div>
+    </main>
   );
 }
 

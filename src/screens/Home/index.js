@@ -30,7 +30,7 @@ function Home({ contextActions, contextState }) {
   const displayResults = !isLoading && songs.length > 0 && artists.length > 0;
 
   return (
-    <div className='Home'>
+    <main className='Home'>
       <header className='Home__header'>
         <Header isLoading={isLoading} onSubmit={handleSubmit} />
       </header>
@@ -40,7 +40,7 @@ function Home({ contextActions, contextState }) {
           <List items={songs} type='songs' />
         </section>
       )}
-    </div>
+    </main>
   );
 }
 

@@ -16,7 +16,9 @@ function CustomizedInputBase({
 }) {
   return (
     <div className='Input'>
-      <span className='Input__label'>{label}</span>
+      <label className='Input__label' htmlFor='InputComponent'>
+        {label}
+      </label>
       <Paper className='Input__paper' elevation={3}>
         <InputBase
           className='Input__base'
