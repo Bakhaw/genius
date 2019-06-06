@@ -11,12 +11,12 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.8",
+    "react-scripts": "^3.0.1",
     "underscore": "^1.9.1"
   },
   "scripts": {
     "dev": "react-scripts start",
-    "deploy": "yarn build && firebase deploy",
+    "deploy": "npm run build && firebase deploy",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
